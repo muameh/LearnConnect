@@ -27,7 +27,7 @@ class CoursesViewModel @Inject constructor(
 
     private fun getCourseCategories() {
         viewModelScope.launch {
-            _courseCategories.value = repository.getCourseCategories()
+            _courseCategories.value = repository.getCourseNames()
         }
     }
 

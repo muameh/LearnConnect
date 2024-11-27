@@ -4,8 +4,10 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mehmetbaloglu.learnconnect.data.models.LogInState
+import com.mehmetbaloglu.learnconnect.data.models.User
 import com.mehmetbaloglu.learnconnect.data.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -29,6 +31,7 @@ class SignUpViewModel @Inject constructor(private val repository: Repository) : 
                 onSuccess = {
                     _signUpState.value = LogInState.Success
                     _signUpMessage.value = "User signed up successfully."
+                    checkAndAddUserToFirestore(email)
                 },
                 onFailure = { error ->
                     _signUpState.value = LogInState.Error
@@ -36,6 +39,28 @@ class SignUpViewModel @Inject constructor(private val repository: Repository) : 
                     Log.d("signUpError", error.toString())
                 }
             )
+        }
+    }
+
+    // Firestore'a kullanıcı ekleyip kontrol etme fonksiyonu
+    fun checkAndAddUserToFirestore(email: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                // Firestore'dan kullanıcıyı al
+                val existingUser = repository.getUserFromFirestore(email)
+
+                if (existingUser == null) {
+                    // Kullanıcı yoksa, yeni bir kullanıcı oluştur
+                    val newUser = User(user_email = email)
+                    // Firestore'a kullanıcıyı ekle
+                    repository.addUserToFirestore(newUser)
+                } else {
+                   //"User already exists in Firestore."
+                }
+            } catch (e: Exception) {
+                // Hata durumunu işle
+                Log.d("checkAndAddUserToFirestore", e.toString())
+            }
         }
     }
 

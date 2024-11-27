@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -116,6 +117,26 @@ dependencies {
     //coil
     //implementation("io.coil-kt.coil3:coil-compose:3.0.0-rc01") <- bu versiyon hata verdi?!
     implementation("io.coil-kt:coil-compose:2.4.0")
+
+    //exoplayer
+    implementation("androidx.media3:media3-exoplayer:1.0.2")
+    implementation("androidx.media3:media3-ui:1.0.2")
+    implementation("androidx.media3:media3-exoplayer-dash:1.0.2")
+
+    // Unit test için
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("io.mockk:mockk:1.13.2")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
+    // Android için UI testleri
+    androidTestImplementation ("androidx.compose.ui:ui-test-junit4:1.5.1")
+    debugImplementation ("androidx.compose.ui:ui-test-manifest:1.5.1")
+
+    //test sırasında LiveData ve benzeri UI thread'e bağlı yapıları eş zamanlı olarak çalıştırmanıza olanak tanır
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+
+
+
 
 }
 

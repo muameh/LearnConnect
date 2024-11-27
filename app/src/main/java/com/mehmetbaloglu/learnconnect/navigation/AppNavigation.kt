@@ -8,10 +8,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.google.firebase.auth.FirebaseAuth
+import com.mehmetbaloglu.learnconnect.data.models.User
 import com.mehmetbaloglu.learnconnect.ui.screens.CourseDetailsScreen
 import com.mehmetbaloglu.learnconnect.ui.screens.CoursesScreen
 import com.mehmetbaloglu.learnconnect.ui.screens.LogInScreen
 import com.mehmetbaloglu.learnconnect.ui.screens.SignUpScreen
+import com.mehmetbaloglu.learnconnect.ui.screens.UserDetailScreen
 import com.mehmetbaloglu.learnconnect.ui.screens.VideoPlayerScreen
 
 @Composable
@@ -53,6 +55,10 @@ fun AppNavigation(){
             if (videoUrl != null) {
                 VideoPlayerScreen(navController = navController, videoUrl = videoUrl)
             }
+        }
+
+        composable(route=AppScreens.UserDetailScreen.name){
+            UserDetailScreen(navController = navController)
         }
 
 

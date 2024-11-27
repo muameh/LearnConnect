@@ -1,12 +1,14 @@
 package com.mehmetbaloglu.learnconnect.ui.screens
 
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -27,11 +29,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.mehmetbaloglu.learnconnect.R
 import com.mehmetbaloglu.learnconnect.data.models.LogInState
 import com.mehmetbaloglu.learnconnect.navigation.AppScreens
 import com.mehmetbaloglu.learnconnect.ui.viewmodels.LogInViewModel
@@ -76,6 +81,11 @@ fun LogInScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Image(
+                    painter = painterResource(id = R.drawable.learnconnect),
+                    contentDescription = "app logo",
+                    modifier = Modifier.size(150.dp).padding(4.dp))
+                Text(text = "Welcome to LearnConnect", color = Color(0xFF6ac1f0), fontSize = 24.sp)
                 OutlinedTextField(
                     value = emailState,
                     onValueChange = { emailState = it },

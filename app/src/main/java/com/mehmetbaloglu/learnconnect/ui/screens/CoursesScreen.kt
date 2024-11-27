@@ -12,10 +12,16 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -29,6 +35,7 @@ import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
 import com.mehmetbaloglu.learnconnect.navigation.AppScreens
 import com.mehmetbaloglu.learnconnect.ui.viewmodels.CoursesViewModel
+import com.mehmetbaloglu.learnconnect.utils.Widgets
 
 @Composable
 fun CoursesScreen(
@@ -39,36 +46,20 @@ fun CoursesScreen(
     val currentUser = FirebaseAuth.getInstance().currentUser
 
 
-    Scaffold { innerPadding ->
+    Scaffold(
+        bottomBar = {
+            Widgets.BottomNavBar(navController = navController, currentRoute = AppScreens.CoursesScreen.name)
+        }
+    ) { innerPadding ->
         Surface(
             modifier = Modifier.padding(innerPadding)
         ) {
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    verticalAlignment = Alignment.Bottom,
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ){
-                    Text(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Hello ${currentUser?.email}  --> ",
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                    Button(
-                        modifier = Modifier.padding(0.dp).width(120.dp).height(35.dp),
-                        shape = RoundedCornerShape(8.dp),
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Text(text = "Your Page")
-                    }
-                }
 
                 Text(
-                    text = "Courses",
+                    text = "All Courses",
                     modifier = Modifier.align(Alignment.CenterHorizontally),
                     style = MaterialTheme.typography.headlineMedium)
                 LazyColumn {
@@ -104,3 +95,4 @@ fun CategoryCard(courseName: String, onClick: () -> Unit) {
             )
     }
 }
+
