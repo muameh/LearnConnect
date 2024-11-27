@@ -31,7 +31,7 @@ class CourseDetailViewModel @Inject constructor(private val repository: Reposito
         try {
             viewModelScope.launch(Dispatchers.IO) {
                 repository.addCourseToFavoritesFirestore(email, newCourse)
-                _addFavState.value = "added Successfully"
+                _addFavState.value = "Added Favourites Successfully"
             }
         } catch (e: Exception){
             _addFavState.value = "${e.message}"

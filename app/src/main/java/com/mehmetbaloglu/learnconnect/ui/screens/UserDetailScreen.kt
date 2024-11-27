@@ -57,6 +57,7 @@ fun UserDetailScreen(
     val registeredCourses by userDetailViewModel.userRegisteredCourses.collectAsState()
     val favCourses by userDetailViewModel.userFavCourses.collectAsState()
 
+
     // Call the functions to fetch the data (this could be done based on lifecycle or user interaction)
     LaunchedEffect(true) {
         if (email != null) {

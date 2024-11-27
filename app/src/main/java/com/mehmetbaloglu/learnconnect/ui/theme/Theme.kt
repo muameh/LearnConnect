@@ -32,12 +32,10 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
-
 @Composable
 fun LearnConnectTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    darkTheme: Boolean = isSystemInDarkTheme(), // This call is inside a Composable function
+    dynamicColor: Boolean = true,  // Dynamic color for Android 12+
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -45,11 +43,11 @@ fun LearnConnectTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
 
+    // Wrap the content with the MaterialTheme that applies the color scheme
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,

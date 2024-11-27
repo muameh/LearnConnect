@@ -156,3 +156,33 @@ Uygulama geliştirme sürecinde kullanılan başlıca teknolojiler ve araçlar �
 Bu uygulama, kullanıcıların eğitim içeriklerine hızlı ve verimli bir şekilde erişmesini sağlayan, modern Android geliştirme araçlarıyla oluşturulmuş bir platformdur. Firebase Authentication, Retrofit, Room, Jetpack Compose ve Navigation gibi güçlü teknolojiler kullanılarak geliştirilen bu uygulama, kullanıcılara dinamik bir deneyim sunar. Kullanıcılar kurslara kaydolabilir, içeriklere erişebilir ve videoları izleyebilirken aynı zamanda eğitim materyalleri ile etkileşime geçebilirler.
 
 Kullanıcı dostu arayüz, sağlam veri yönetimi ve esnek navigasyon yapısı ile güçlü bir eğitim platformu deneyimi sunulmuştur.
+
+## Screenshots
+
+Below are some screenshots of the app in action:
+
+---
+
+![Main Screen](screenShoots/Screenshot_1732710816.png)
+![Main Screen](screenShoots/Screenshot_1732710823.png)
+![Main Screen](screenShoots/Screenshot_1732710839.png)
+![Main Screen](screenShoots/Screenshot_1732710847.png)
+![Main Screen](screenShoots/Screenshot_1732710850.png)
+![Main Screen](screenShoots/Screenshot_1732710888.png)
+![Main Screen](screenShoots/Screenshot_1732710899.png)
+![Main Screen](screenShoots/Screenshot_1732710905.png)
+![Main Screen](screenShoots/Screenshot_1732710908.png)
+![Main Screen](screenShoots/Screenshot_1732710917.png)
+![Main Screen](screenShoots/Screenshot_1732710925.png)
+![Main Screen](screenShoots/Screenshot_1732710938.png)
+![Main Screen](screenShoots/Screenshot_1732710917.png)
+![Main Screen](screenShoots/Screenshot_1732710925.png)
+![Main Screen](screenShoots/Screenshot_1732710938.png)
+![Main Screen](screenShoots/Screenshot_1732710949.png)
+![Main Screen](screenShoots/Screenshot_1732711572.png)
+
+
+
+
+
+
